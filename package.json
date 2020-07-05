@@ -1,0 +1,54 @@
+{
+  "name": "rwanda",
+  "version": "1.0.0",
+  "description": "Simple api that returns provinces, districts, sectors, villages and cells found in Rwanda.",
+  "main": "index.js",
+  "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/node": "^7.8.4",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/polyfill": "^7.8.3",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/register": "^7.8.3",
+    "@babel/runtime": "^7.8.4",
+    "babel-loader": "^8.0.6",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.6.0",
+    "http-status-codes": "^1.4.0",
+    "nodemon": "^2.0.4",
+    "rwanda": "^2.0.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node --require @babel/polyfill build/index.js",
+    "start:dev": "nodemon --exec babel-node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel -d build/ src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorkarangwa4/rwanda.git"
+  },
+  "keywords": [
+    "rwanda",
+    "rapid-api",
+    "free-api",
+    "locations",
+    "urwanda",
+    "intara",
+    "u rwanda",
+    "imirenge",
+    "utugari"
+  ],
+  "author": "Victor Karangwa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/victorkarangwa4/rwanda/issues"
+  },
+  "homepage": "https://github.com/victorkarangwa4/rwanda#readme"
+}
