@@ -37,8 +37,8 @@ export const getProvinces = (req, res) => {
 export const getDistricts = (req, res) => {
   try {
     const { p } = req.query;
-    const districts = Districts(p.toLowerCase());
-
+    const isOption = p;
+    const districts = isOption ? Districts(p.toLowerCase()) : Districts();
     const data = districts;
 
     if (!data) {
@@ -51,7 +51,9 @@ export const getDistricts = (req, res) => {
 
     Response.successMessage(
       res,
-      `All districts from province: ${p}`,
+      isOption
+        ? `All districts from province: ${p}`
+        : ` All districts from Rwanda`,
       data,
       200
     );
@@ -63,7 +65,10 @@ export const getDistricts = (req, res) => {
 export const getSectors = (req, res) => {
   try {
     const { p, d } = req.query;
-    const sectors = Sectors(p.toLowerCase(), d.toLowerCase());
+    const isOption = p && d;
+    const sectors = isOption
+      ? Sectors(p.toLowerCase(), d.toLowerCase())
+      : Sectors();
     const data = sectors;
 
     if (!data) {
@@ -76,7 +81,9 @@ export const getSectors = (req, res) => {
 
     Response.successMessage(
       res,
-      `All sectors from province: ${p}, district: ${d}`,
+      isOption
+        ? `All sectors from province: ${p}, district: ${d}`
+        : `All sectors from Rwanda`,
       data,
       200
     );
@@ -88,7 +95,10 @@ export const getSectors = (req, res) => {
 export const getCells = (req, res) => {
   try {
     const { p, d, s } = req.query;
-    const cells = Cells(p.toLowerCase(), d.toLowerCase(), s.toLowerCase());
+    const isOption = p && d && s;
+    const cells = isOption
+      ? Cells(p.toLowerCase(), d.toLowerCase(), s.toLowerCase())
+      : Cells();
     const data = cells;
     if (!data) {
       return Response.errorMessage(
@@ -99,7 +109,9 @@ export const getCells = (req, res) => {
     }
     Response.successMessage(
       res,
-      `All cells from province: ${p}, district: ${d}, sector: ${s}`,
+      isOption
+        ? `All cells from province: ${p}, district: ${d}, sector: ${s}`
+        : `All cells from Rwanda`,
       data,
       200
     );
@@ -111,12 +123,15 @@ export const getCells = (req, res) => {
 export const getVillages = (req, res) => {
   try {
     const { p, d, s, c } = req.query;
-    const villages = Villages(
-      p.toLowerCase(),
-      d.toLowerCase(),
-      s.toLowerCase(),
-      c.toLowerCase()
-    );
+    const isOption = p && d && s && c;
+    const villages = isOption
+      ? Villages(
+          p.toLowerCase(),
+          d.toLowerCase(),
+          s.toLowerCase(),
+          c.toLowerCase()
+        )
+      : Villages();
     const data = villages;
 
     if (!data) {
@@ -129,7 +144,9 @@ export const getVillages = (req, res) => {
 
     Response.successMessage(
       res,
-      `All villages from province: ${p}, district: ${d}, sector: ${s}, cell: ${c}`,
+      isOption
+        ? `All villages from province: ${p}, district: ${d}, sector: ${s}, cell: ${c}`
+        : `All villages from Rwanda`,
       data,
       200
     );
