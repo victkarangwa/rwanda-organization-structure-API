@@ -5,7 +5,7 @@ import routes from './routes';
 const app = express();
 
 
-app.use('/', routes);
+app.use('/api', routes);
 
 app.get('/', (req, res) =>
   Response.successMessage(
