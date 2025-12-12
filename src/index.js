@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from 'express';
 import Response from './helpers/Response';
 import routes from './routes';
